@@ -1,0 +1,61 @@
+---
+title: "Homework 5"
+author: "Riyo Moore"
+date: "2/27/2021"
+output: word_document
+---
+
+```{r}
+library(tidyverse)
+Stockreturns <- c(-8.36,   1.63,  -2.27, -2.93,  -2.70, 
+                           -2.93, -9.14, -2.64, 6.82,   -2.35, 
+                           -3.58,   6.13,   7.00, -15.25, -8.66,
+                           -1.03, -9.16,  -1.25, -1.22,  -10.27,
+                           -5.11, -0.80,  -1.44,  1.28,  -0.65,
+                            4.34,   12.22, -7.21, -0.09, 7.34, 
+                            5.04,  -7.24,  -2.14, -1.01,  -1.41, 
+                            12.03, -2.53,  4.33,  1.35)
+         Stockreturns
+
+```
+Problem 1
+```{r}
+m=mean(Stockreturns)
+m
+```
+Problem 2
+```{r}
+s=sd(Stockreturns)
+s
+```
+Problem 3
+```{r}
+pnorm(q=-1.5, mean = m, sd=s)
+```
+Problem 4
+```{r}
+1-qnorm(p=.7, mean=m, sd=s)
+```
+Problem 5
+```{r}
+quantile(Stockreturns)
+```
+Problem 6
+```{r}
+boxplot(Stockreturns)
+qqnorm(Stockreturns)
+qqline(Stockreturns)
+```
+Problem 7
+H(0) :  population mean = .95
+H(A) :  population mean does not equal .95
+
+Problem 8
+```{r}
+t.test(Stockreturns, mu=.95, var.equal = FALSE)
+```
+> The p-value is 0.03654, which is less than .05, which means that we reject the null hypothesis. There is significant statistical evidence to indicate that the population mean does not equal .95. 
+
+Problem 9
+> According to the 95% confidence interval, the broker appears to perform worse than average because the average is above the confidence interval. 
+
